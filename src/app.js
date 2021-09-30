@@ -1,6 +1,7 @@
 const path = require("path");
-
 const express = require("express");
+
+const hbs = require('hbs')
 
 // console.log(path.join(__dirname, '../public'));
 
@@ -18,9 +19,26 @@ const express = require("express");
 
 /********************************************************** */
 const app = express();
-const publicDirectoryPath = path.join(__dirname, "../public");
 
+const publicDirectoryPath = path.join(__dirname, "../public");
+const viewsPath = path.join(__dirname, "../templates/views");
+const partialsPath = path.join(__dirname,"../templates/partials")
+
+// Views folder is a default location that Express expects your views to live in.
+
+/**
+ * 
+ * You can always customize that, but to customize it, you have to tell express where to look   * And this is going to require us to create a brand new path.
+// So let's go ahead and define one similar to how we defined public directory path.
+ */
+
+
+// Setup handlebars engine and viewslocation
 app.set("view engine", "hbs");
+app.set("views", viewsPath);
+hbs.registerPartials(partialsPath)
+
+// Setup static directory to serve
 app.use(express.static(publicDirectoryPath));
 
 app.get("", (req, res) => {
@@ -31,12 +49,19 @@ app.get("", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.render("about",
-  {
+  res.render("about", {
     title: "About Me",
     name: "Shivani",
   });
-})
+});
+
+app.get("/help", (req, res) => {
+  res.render("help", {
+    title: "Help",
+    message: "Help page",
+    name: "Shivani"
+  });
+});
 
 app.listen(3000, () => {
   console.log("Server is up on Port 3000.");
