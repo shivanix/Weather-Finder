@@ -1,7 +1,8 @@
 const path = require("path");
 const express = require("express");
 
-const hbs = require('hbs')
+const hbs = require('hbs');
+const { response } = require("express");
 
 // console.log(path.join(__dirname, '../public'));
 
@@ -62,6 +63,20 @@ app.get("/help", (req, res) => {
     name: "Shivani"
   });
 });
+
+app.get("/help/*", (req, res) =>{
+  res.render("404", {
+    title: 404,
+    message:"Help article not found"
+  })
+})
+
+app.get('*', (req,res) =>{
+  res.render("404", {
+    title: 404,
+    message:"Page not found"
+  })
+})
 
 app.listen(3000, () => {
   console.log("Server is up on Port 3000.");
