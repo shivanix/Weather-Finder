@@ -5,7 +5,7 @@ const { weatherStackApiKey } = require("../APIKeys");
 const forecast = (latitude, longitude, callback) => {
   const url = `http://api.weatherstack.com/current?access_key=${weatherStackApiKey}&query=${encodeURIComponent(
     longitude
-  )},${encodeURIComponent(latitude)}&units=f`;
+  )},${encodeURIComponent(latitude)}&units=m`;
 
   // json in lowercase option, can be set to true or false.
   // true responses are to automatically pass JSON responses to us.--You wont have to do JSON.parse specially
@@ -21,7 +21,7 @@ const forecast = (latitude, longitude, callback) => {
 
       callback(
         undefined,
-        `It is currently ${data.temperature} degrees Fahrenheit and is ${data.weather_descriptions[0]}. It feels like ${data.feelslike} degrees Fahrenheit outside`
+        `It is currently ${data.temperature} degrees Celsius and is ${data.weather_descriptions[0]}. It feels like ${data.feelslike} degrees Celsius outside`
       );
     }
   });
