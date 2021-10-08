@@ -21,7 +21,11 @@ fetch("http://localhost:3000/weather?address=toronto").then((response) => {
 });
 
 const weatherForm = document.querySelector('form')
+const search = document.querySelector('input')
+
 weatherForm.addEventListener('submit',(e)=>{
   e.preventDefault()
-console.log("testingggggg");
+
+  const location = search.value
+console.log(location);
 })
