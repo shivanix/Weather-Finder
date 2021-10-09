@@ -13,8 +13,8 @@ Code deployed to production on Heroku
 
 ##Dependencies
 
--Node 10.x or above
--NPM 5.x or above
--express
--hbs
--postman-request
+- Node 10.x or above
+- NPM 5.x or above
+- express
+- hbs
+- postman-request
