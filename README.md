@@ -1,4 +1,4 @@
-#WeatherFinder
+# WeatherFinder
 
 WeatherFinder is a web application built using Node.js, Express, HTML, CSS, weatherstack API, mapbox API.
 
