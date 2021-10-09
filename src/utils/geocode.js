@@ -1,10 +1,10 @@
 const request = require("postman-request");
-const{mapboxApiKey} = require("../APIKeys");
+// const{mapboxApiKey} = require("../APIKeys");
 
 const geocode = (address, callback) => {
   const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
     address
-  )}.json?access_token=${mapboxApiKey}&limit=1`;
+  )}.json?access_token=pk.eyJ1Ijoic2hpdmFuaXgiLCJhIjoiY2t1MzNhcm9vMHczNDJ2bXB6Z2ZuZ2E5aiJ9.7V6W-NmMAXCAo8dI4fDF0Q&limit=1`;
 
   request({ url, json: true }, (error, { body }) => {
     if (error) {
