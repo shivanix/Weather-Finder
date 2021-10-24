@@ -9,7 +9,7 @@ WeatherFinder allows users to input a location and get the weather forecast in r
 ## Live demo
 Code deployed to production on Heroku
 
-`https://shivani-weather-finder.herokuapp.com/`
+(https://shivani-weather-finder.herokuapp.com/)
 
 ##Dependencies
 
